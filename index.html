@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L.M Serviços Automotivos - Nova Iguaçu RJ</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#0f0f0f;color:#fff}
+header{background:#ffcc00;color:#000;padding:18px 16px;text-align:center;position:sticky;top:0;z-index:10}
+header h1{font-size:23px;line-height:1.1}
+header p{font-size:13px;margin-top:5px}
+.hero{background:#1a1a1a;padding:20px 16px;text-align:center}
+.hero h2{font-size:21px;color:#ffcc00}
+.hero p{font-size:14px;color:#ccc;margin:10px 0;line-height:1.5}
+.badge{display:inline-block;background:#ffcc00;color:#000;padding:7px 13px;border-radius:20px;font-weight:bold;font-size:13px}
+.section{padding:18px 16px}
+.section h3{color:#ffcc00;margin-bottom:12px;font-size:18px}
+.card{background:#1e1e1e;border:1px solid #333;border-radius:12px;padding:14px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.card b{font-size:15px}
+.card span{font-size:13px;color:#bbb;display:block;margin-top:4px;line-height:1.4}
+.price{color:#ffcc00;font-weight:bold;font-size:16px;white-space:nowrap}
+.btn{background:#25D366;color:#fff;border:none;padding:10px 14px;border-radius:8px;font-weight:bold;cursor:pointer;white-space:nowrap}
+.btn-yellow{background:#ffcc00;color:#000}
+.btn-dark{background:#333;color:#fff}
+.promo{background:#ffcc00;color:#000;border-radius:12px;padding:14px;text-align:center}
+.promo b{font-size:17px}
+.cart{position:fixed;bottom:0;left:0;right:0;background:#111;border-top:2px solid #ffcc00;padding:12px 16px}
+.cart-row{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px}
+input,select{width:100%;padding:11px;border-radius:8px;border:1px solid #333;background:#222;color:#fff;margin-top:8px}
+.info{background:#1e1e1e;border-radius:12px;padding:14px;font-size:14px;line-height:1.6;color:#ccc}
+.info b{color:#fff}
+footer{padding:20px 16px 130px;text-align:center;color:#888;font-size:12px;line-height:1.5}
+.tag{display:inline-block;background:#2a2a2a;border:1px solid #444;padding:5px 10px;border-radius:20px;font-size:12px;margin:3px 2px;color:#ddd}
+</style>
+</head>
+<body>
+<header>
+<h1>🔧 L.M SERVIÇOS AUTOMOTIVOS</h1>
+<p>Estrada Santa Rita, 2631 - Vila Formosa - Nova Iguaçu RJ</p>
+</header>
+
+<div class="hero">
+<span class="badge">⚡ ORÇAMENTO GRÁTIS NO WHATSAPP</span>
+<h2 style="margin-top:12px">Suspensão, freio, óleo e muito mais</h2>
+<p>Oficina + Lava Jato. O cliente escolhe o serviço e já manda o pedido pronto no WhatsApp. Pagamento na loja.</p>
+<div>
+<span class="tag">Suspensão em geral</span>
+<span class="tag">Freio</span>
+<span class="tag">Troca de óleo</span>
+<span class="tag">Correia dentada</span>
+<span class="tag">Embreagem</span>
+<span class="tag">Manutenção preventiva</span>
+</div>
+</div>
+
+<div class="section">
+<div class="promo">
+<b>🔥 PROMOÇÃO DA LOJA</b><br>
+Limpeza de Arrefecimento já com aditivo incluso<br>
+<span style="font-size:22px;font-weight:bold">R$ 79,99</span><br>
+<span style="font-size:13px">Óleo 15w40 Ipiranga na troca: R$ 32,90</span>
+</div>
+</div>
+
+<div class="section">
+<h3>🧽 LM Lava Jato - Preço na placa</h3>
+<div class="card"><div><b>Lavagem Simples</b><span>Por fora + aspiração básica</span></div><div style="text-align:right"><div class="price">R$ 15,00</div><button class="btn" onclick="add('Lavagem Simples - Lava Jato',15)">Adicionar</button></div></div>
+<div class="card"><div><b>Lavagem Completa</b><span>Lavagem + aspiração completa + pneus</span></div><div style="text-align:right"><div class="price">R$ 30,00</div><button class="btn" onclick="add('Lavagem Completa - Lava Jato',30)">Adicionar</button></div></div>
+<div class="card"><div><b>Ducha</b><span>Lavagem rápida por fora</span></div><div style="text-align:right"><div class="price">R$ 10,00</div><button class="btn" onclick="add('Ducha - Lava Jato',10)">Adicionar</button></div></div>
+<div class="card"><div><b>Moto</b><span>Lavagem completa moto</span></div><div style="text-align:right"><div class="price">R$ 15,00</div><button class="btn" onclick="add('Lavagem Moto',15)">Adicionar</button></div></div>
+<div class="card"><div><b>Uber</b><span>Lavagem para motorista de app</span></div><div style="text-align:right"><div class="price">R$ 25,00</div><button class="btn" onclick="add('Lavagem Uber',25)">Adicionar</button></div></div>
+</div>
+
+<div class="section">
+<h3>🛠️ Serviços Automotivos - Orçamento no WhatsApp</h3>
+<p style="font-size:13px;color:#aaa;margin-bottom:12px">Esses serviços variam por carro, então o site já deixa o pedido pronto pra ele responder o preço. Sem inventar valor.</p>
+<div class="card"><div><b>Suspensão em Geral</b><span>Amortecedor, rolamentos, pivô, bandeja e mais</span></div><button class="btn btn-dark" onclick="orcamento('Suspensão em Geral')">Pedir Orçamento</button></div>
+<div class="card"><div><b>Freio em Geral</b><span>Pastilha, disco, tambor, fluido e teste</span></div><button class="btn btn-dark" onclick="orcamento('Freio em Geral')">Pedir Orçamento</button></div>
+<div class="card"><div><b>Troca de Óleo + Filtros</b><span>Óleo 15w40 Ipiranga R$ 32,90 na troca + filtros</span></div><button class="btn btn-dark" onclick="orcamento('Troca de Óleo + Filtros - Óleo R$ 32,90')">Pedir Orçamento</button></div>
+<div class="card"><div><b>Limpeza de Arrefecimento</b><span>Já com aditivo incluso</span></div><div style="text-align:right"><div class="price">R$ 79,99</div><button class="btn" onclick="add('Limpeza de Arrefecimento',79.99)">Adicionar</button></div></div>
+<div class="card"><div><b>Correia Dentada + Esticador</b><span>Kit completo + mão de obra</span></div><button class="btn btn-dark" onclick="orcamento('Correia Dentada + Esticador')">Pedir Orçamento</button></div>
+<div class="card"><div><b>Correia de Alternador</b><span>Troca + verificação</span></div><button class="btn btn-dark" onclick="orcamento('Correia de Alternador')">Pedir Orçamento</button></div>
+<div class="card"><div><b>Embreagem</b><span>Kit embreagem + mão de obra</span></div><button class="btn btn-dark" onclick="orcamento('Embreagem')">Pedir Orçamento</button></div>
+<div class="card"><div><b>Manutenção Preventiva</b><span>Revisão completa antes de dar problema</span></div><button class="btn btn-dark" onclick="orcamento('Manutenção Preventiva')">Pedir Orçamento</button></div>
+<div class="card"><div><b>Revisão para Viagem</b><span>Checklist completo pra viajar tranquilo</span></div><button class="btn btn-dark" onclick="orcamento('Revisão para Viagem')">Pedir Orçamento</button></div>
+<div class="card"><div><b>Cabeçote - Linha Nacional</b><span>Serviço especializado linha nacional</span></div><button class="btn btn-dark" onclick="orcamento('Cabeçote Linha Nacional')">Pedir Orçamento</button></div>
+</div>
+
+<div class="section">
+<h3>🎁 Cupom</h3>
+<input id="cupom" placeholder="Digite seu cupom: ex: LM10">
+<button class="btn btn-yellow" style="width:100%;margin-top:8px" onclick="aplicarCupom()">Aplicar LM10 = 10% OFF no Lava Jato</button>
+<p id="cupomMsg" style="font-size:13px;color:#ffcc00;margin-top:8px"></p>
+</div>
+
+<div class="section">
+<h3>📦 Como funciona</h3>
+<div class="info">
+<b>1.</b> Escolhe Lava Jato ou Serviço<br>
+<b>2.</b> Clica em Adicionar ou Pedir Orçamento<br>
+<b>3.</b> Manda pronto no WhatsApp<br>
+<b>4.</b> Pagamento na loja: <b>Pix, Cartão ou Dinheiro</b><br><br>
+<b>Horário:</b> Segunda a Sexta 09h às 18h<br>
+Sábado 08:30 às 14h<br>
+<b>Endereço:</b> Estrada Santa Rita, 2631 - Vila Formosa - Nova Iguaçu RJ, 26051-820<br>
+<b>WhatsApp:</b> (21) 98314-7263<br>
+<b>Empresa:</b> Cadastrada desde junho de 2025
+</div>
+<select id="pagamento"><option>Pix</option><option>Cartão</option><option>Dinheiro - preciso de troco</option></select>
+<input id="troco" placeholder="Se dinheiro, troco pra quanto? ex: 100">
+<input id="nome" placeholder="Seu nome + carro: ex: João - Gol 2018">
+</div>
+
+<footer>L.M Serviços Automotivos • Nova Iguaçu RJ<br>Pagamento na loja • Orçamento sem compromisso</footer>
+
+<div class="cart">
+<div class="cart-row"><span>Itens: <b id="qtd">0</b></span><span>Subtotal: <b id="sub">R$ 0,00</b></span></div>
+<div class="cart-row"><span>Desconto: <b id="desc">R$ 0,00</b></span><span>Total: <b id="total" style="color:#ffcc00">R$ 0,00</b></span></div>
+<button class="btn" style="width:100%;padding:13px;font-size:16px" onclick="enviar()">📲 Enviar Pedido / Orçamento no WhatsApp</button>
+</div>
+
+<script>
+let itens=[]; let desconto=0; let orcamentos=[];
+function add(nome,preco){itens.push({nome,preco}); atualizar();}
+function orcamento(nome){orcamentos.push(nome); alert('Adicionado pra orçamento: '+nome+' - vai pro WhatsApp junto com o pedido!'); atualizar();}
+function atualizar(){
+  let sub=itens.reduce((s,i)=>s+i.preco,0);
+  let desc=sub*desconto;
+  let total=sub-desc;
+  document.getElementById('qtd').innerText=itens.length + (orcamentos.length? ' + '+orcamentos.length+' orçamento(s)':'');
+  document.getElementById('sub').innerText='R$ '+sub.toFixed(2).replace('.',',');
+  document.getElementById('desc').innerText='R$ '+desc.toFixed(2).replace('.',',');
+  document.getElementById('total').innerText='R$ '+total.toFixed(2).replace('.',',');
+}
+function aplicarCupom(){
+  let c=document.getElementById('cupom').value.trim().toUpperCase();
+  if(c==='LM10'){desconto=0.10; document.getElementById('cupomMsg').innerText='✅ Cupom aplicado: 10% OFF';}
+  else{desconto=0; document.getElementById('cupomMsg').innerText='❌ Cupom inválido. Tente LM10';}
+  atualizar();
+}
+function enviar(){
+  if(itens.length===0 && orcamentos.length===0){alert('Escolha um serviço primeiro!'); return;}
+  let pag=document.getElementById('pagamento').value;
+  let troco=document.getElementById('troco').value;
+  let nome=document.getElementById('nome').value||'Cliente';
+  let texto='*NOVO PEDIDO - L.M SERVIÇOS AUTOMOTIVOS*%0A%0A';
+  itens.forEach(i=>{texto+=`• ${i.nome} - R$ ${i.preco.toFixed(2)}%0A`;});
+  if(orcamentos.length){ texto+='%0A*PEDIR ORÇAMENTO:*%0A'; orcamentos.forEach(o=>{texto+=`• ${o}%0A`;}); }
+  texto+=`%0A Pagamento: ${pag}`;
+  if(troco) texto+=`%0A Troco pra: R$ ${troco}`;
+  texto+=`%0A Cliente/Carro: ${nome}`;
+  texto+=`%0A Total parcial: ${document.getElementById('total').innerText} (sem os orçamentos)`;
+  window.open('https://wa.me/5521983147263?text='+texto,'_blank');
+}
+atualizar();
+</script>
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
+  </html>
+  
