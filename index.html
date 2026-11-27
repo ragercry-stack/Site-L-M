@@ -25,7 +25,8 @@ header p{font-size:14px;margin-top:4px}
 .btn-mais{background:#22c55e;color:#fff;border:none;width:32px;height:32px;border-radius:8px;font-size:18px;font-weight:bold;cursor:pointer}
 .qtd-num{font-weight:bold;min-width:20px;text-align:center}
 .info{padding:16px;font-size:14px;line-height:1.6;color:#ddd}
-input{width:100%;padding:12px;border-radius:10px;border:1px solid #333;background:#222;color:#fff}
+input,select{width:100%;padding:12px;border-radius:10px;border:1px solid #333;background:#222;color:#fff;margin-top:8px}
+label{font-size:14px;color:#ffcc00;font-weight:bold}
 .map-btn{display:block;text-align:center;background:#fff;color:#000;padding:12px;border-radius:10px;font-weight:bold;text-decoration:none;margin-top:10px}
 .cart{position:fixed;bottom:0;left:0;right:0;background:#111;border-top:3px solid #ffcc00;padding:10px 16px}
 .cart-top{display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px}
@@ -53,6 +54,14 @@ input{width:100%;padding:12px;border-radius:10px;border:1px solid #333;backgroun
 </div>
 <div class="info">
 <input id="nome" placeholder="Seu nome e carro: ex: Fusca 2001 - João">
+<label>💳 Método de Pagamento</label>
+<select id="pagamento">
+<option value="Pix">Pix</option>
+<option value="Dinheiro">Dinheiro</option>
+<option value="Cartão de Crédito">Cartão de Crédito</option>
+<option value="Cartão de Débito">Cartão de Débito</option>
+<option value="Pagar na retirada">Pagar na retirada</option>
+</select>
 <p style="margin-top:12px">📍 Estrada Santa Rita, 2631 - Vila Formosa - Nova Iguaçu RJ<br>🕐 Seg a Sex 09h às 18h | Sáb 08:30 às 14h<br>📲 WhatsApp: (21) 98314-7263</p>
 <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Estrada+Santa+Rita+2631+Vila+Formosa+Nova+Iguaçu+RJ" target="_blank">📍 Como Chegar - Abrir no Mapa</a>
 </div>
@@ -81,9 +90,10 @@ let totalItens=0;
 for(let k in carrinho){totalItens=totalItens+carrinho[k].qtd;}
 if(totalItens===0){alert('Adicione um serviço primeiro! Aperte +');return;}
 let nome=document.getElementById('nome').value||'Cliente';
+let pagamento=document.getElementById('pagamento').value;
 let texto='NOVO PEDIDO - L.M SERVIÇOS%0A%0A';
 for(let k in carrinho){texto+='- '+carrinho[k].qtd+'x '+carrinho[k].nome+' - R$ '+(carrinho[k].preco*carrinho[k].qtd).toFixed(2)+'%0A';}
-texto+='%0ACliente/Carro: '+nome+'%0ATotal: '+document.getElementById('total').innerText;
+texto+='%0ACliente/Carro: '+nome+'%0APagamento: '+pagamento+'%0ATotal: '+document.getElementById('total').innerText;
 window.open('https://wa.me/5521983147263?text='+texto,'_blank');
 }
 let agora=new Date();let dia=agora.getDay();let hora=agora.getHours()+agora.getMinutes()/60;
@@ -94,4 +104,4 @@ let s=document.getElementById('status');
 if(aberto){s.innerText='● Aberto agora';s.className='aberto';}else{s.innerText='● Fechado - abre Seg 09h';s.className='fechado';}
 </script>
 </body>
-</html>
+  </html>
