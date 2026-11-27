@@ -6,61 +6,80 @@
 <title>L.M Serviços Automotivos</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#0f0f0f;color:#fff;padding-bottom:140px}
-header{background:#ffcc00;color:#000;padding:18px;text-align:center}
-header h1{font-size:24px}
-.hero{padding:20px;text-align:center}
-.hero h2{color:#ffcc00;font-size:22px}
-.card{background:#1e1e1e;border:1px solid #333;border-radius:12px;padding:14px;margin:12px;display:flex;justify-content:space-between;align-items:center;gap:10px}
-.price{color:#ffcc00;font-weight:bold;white-space:nowrap}
-.btn{background:#25D366;color:#fff;border:none;padding:10px 14px;border-radius:8px;font-weight:bold;cursor:pointer}
+body{background:#0a0a0a;color:#fff;padding-bottom:230px}
+header{background:#ffcc00;color:#000;padding:20px 16px;text-align:center}
+header h1{font-size:25px;line-height:1.2}
+header p{font-size:14px;margin-top:4px}
+.hero{padding:22px 16px;text-align:center}
+.hero h2{color:#ffcc00;font-size:23px}
+.hero p{color:#ddd;margin-top:6px;font-size:15px}
+.promo{background:#ffcc00;color:#000;padding:14px;border-radius:12px;text-align:center;font-weight:bold;margin:0 16px;font-size:15px;line-height:1.4}
 .section{padding:10px 16px}
-.section h3{color:#ffcc00;margin:12px 0}
-.promo{background:#ffcc00;color:#000;padding:12px;border-radius:10px;text-align:center;font-weight:bold;margin:12px}
-.cart{position:fixed;bottom:0;left:0;right:0;background:#111;border-top:2px solid #ffcc00;padding:12px 16px}
-input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#222;color:#fff;margin-top:8px}
+.section h3{color:#ffcc00;margin:16px 0 10px;font-size:19px}
+.card{background:#1a1a1a;border:1px solid #2d2d2d;border-radius:16px;padding:16px;margin:10px 0;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.card b{font-size:16px}
+.price{color:#ffcc00;font-weight:bold;white-space:nowrap}
+.btn{background:#22c55e;color:#fff;border:none;padding:11px 14px;border-radius:10px;font-weight:bold;cursor:pointer;white-space:nowrap}
+.btn:active{transform:scale(0.97)}
+.info{background:#141414;border-radius:12px;padding:14px;margin:16px;font-size:14px;line-height:1.6;color:#ddd}
+.cart{position:fixed;bottom:0;left:0;right:0;background:#111;border-top:3px solid #ffcc00;padding:12px 16px 14px}
+.cart-top{display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px}
+.cart-items{font-size:13px;color:#ccc;max-height:60px;overflow:hidden;margin-bottom:8px;line-height:1.4}
+input{width:100%;padding:12px;border-radius:10px;border:1px solid #333;background:#222;color:#fff;margin-top:10px}
+.btn-big{width:100%;padding:14px;font-size:16px;border-radius:12px;background:#25D366;color:#fff;border:none;font-weight:bold;cursor:pointer}
 </style>
 </head>
 <body>
 <header><h1>🔧 L.M SERVIÇOS AUTOMOTIVOS</h1><p>Oficina + Auto Peças | Nova Iguaçu RJ</p></header>
 <div class="hero"><h2>Seu carro pronto hoje mesmo</h2><p>Troca de óleo, freios, suspensão, revisão e Lava Jato.</p></div>
 <div class="promo">🔥 PROMO: Limpeza de Arrefecimento R$ 79,99 | Óleo 15w40 R$ 32,90</div>
+
 <div class="section"><h3>🚗 Lava Jato</h3>
-<div class="card"><b>Lavagem Simples</b><span><span class="price">R$ 15,00</span> <button class="btn" onclick="add('Lavagem Simples',15)">Adicionar</button></span></div>
-<div class="card"><b>Lavagem Completa</b><span><span class="price">R$ 30,00</span> <button class="btn" onclick="add('Lavagem Completa',30)">Adicionar</button></span></div>
-<div class="card"><b>Ducha</b><span><span class="price">R$ 10,00</span> <button class="btn" onclick="add('Ducha',10)">Adicionar</button></span></div>
-<div class="card"><b>Moto</b><span><span class="price">R$ 15,00</span> <button class="btn" onclick="add('Moto',15)">Adicionar</button></span></div>
-<div class="card"><b>&#85;ber</b><span><span class="price">R$ 25,00</span> <button class="btn" onclick="add('&#85;ber',25)">Adicionar</button></span></div>
+<div class="card"><b>Lavagem Simples</b><span><span class="price">R$ 15,00</span> <button type="button" class="btn" onclick="adicionar('Lavagem Simples',15)">Adicionar</button></span></div>
+<div class="card"><b>Lavagem Completa</b><span><span class="price">R$ 30,00</span> <button type="button" class="btn" onclick="adicionar('Lavagem Completa',30)">Adicionar</button></span></div>
+<div class="card"><b>Ducha</b><span><span class="price">R$ 10,00</span> <button type="button" class="btn" onclick="adicionar('Ducha',10)">Adicionar</button></span></div>
+<div class="card"><b>Moto</b><span><span class="price">R$ 15,00</span> <button type="button" class="btn" onclick="adicionar('Moto',15)">Adicionar</button></span></div>
+<div class="card"><b>&#85;ber</b><span><span class="price">R$ 25,00</span> <button type="button" class="btn" onclick="adicionar('&#85;ber',25)">Adicionar</button></span></div>
 </div>
+
 <div class="section"><h3>🛠️ Serviços - Pedir Orçamento</h3>
-<div class="card"><b>Suspensão em Geral</b><button class="btn" onclick="add('Orçamento: Suspensão em Geral',0)">Adicionar</button></div>
-<div class="card"><b>Freio em Geral</b><button class="btn" onclick="add('Orçamento: Freio em Geral',0)">Adicionar</button></div>
-<div class="card"><b>Troca de Óleo + Filtros</b><button class="btn" onclick="add('Orçamento: Troca de Óleo + Filtros',0)">Adicionar</button></div>
-<div class="card"><b>Correia Dentada + Esticador</b><button class="btn" onclick="add('Orçamento: Correia Dentada',0)">Adicionar</button></div>
-<div class="card"><b>Embreagem</b><button class="btn" onclick="add('Orçamento: Embreagem',0)">Adicionar</button></div>
+<div class="card"><b>Suspensão em Geral</b><button type="button" class="btn" onclick="adicionar('Orçamento: Suspensão em Geral',0)">Adicionar</button></div>
+<div class="card"><b>Freio em Geral</b><button type="button" class="btn" onclick="adicionar('Orçamento: Freio em Geral',0)">Adicionar</button></div>
+<div class="card"><b>Troca de Óleo + Filtros</b><button type="button" class="btn" onclick="adicionar('Orçamento: Troca de Óleo + Filtros',0)">Adicionar</button></div>
+<div class="card"><b>Correia Dentada + Esticador</b><button type="button" class="btn" onclick="adicionar('Orçamento: Correia Dentada',0)">Adicionar</button></div>
+<div class="card"><b>Embreagem</b><button type="button" class="btn" onclick="adicionar('Orçamento: Embreagem',0)">Adicionar</button></div>
 </div>
-<div class="section"><input id="nome" placeholder="Seu nome e carro: ex: João - Gol 2018"><p style="margin-top:12px;font-size:14px;color:#ccc">📍 Estrada Santa Rita, 2631 - Vila Formosa - Nova Iguaçu RJ<br>🕐 Seg a Sex 09h às 18h | Sáb 08:30 às 14h<br>📲 WhatsApp: (21) 98314-7263</p></div>
+
+<div class="info">
+<input id="nome" placeholder="Seu nome e carro: ex: João - Gol 2018">
+<p style="margin-top:12px">📍 Estrada Santa Rita, 2631 - Vila Formosa - Nova Iguaçu RJ<br>🕐 Seg a Sex 09h às 18h | Sáb 08:30 às 14h<br>📲 WhatsApp: (21) 98314-7263</p>
+</div>
+
 <div class="cart">
-<div style="display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px"><span>Itens: <b id="qtd">0</b></span><span>Total: <b id="total" style="color:#ffcc00">R$ 0,00</b></span></div>
-<button class="btn" style="width:100%;padding:12px;font-size:16px" onclick="enviar()">📲 Enviar Pedido Completo no WhatsApp</button>
+<div class="cart-top"><span>🛒 Itens: <b id="qtd">0</b></span><span>Total: <b id="total" style="color:#ffcc00">R$ 0,00</b></span></div>
+<div class="cart-items" id="lista">Nenhum serviço adicionado ainda.</div>
+<button type="button" class="btn-big" onclick="enviar()">📲 Enviar Pedido Completo no WhatsApp</button>
 </div>
+
 <script>
 let itens=[];
-function add(nome,preco){itens.push({nome,preco});atualizar();}
-function atualizar(){
-let total=itens.reduce((s,i)=>s+i.preco,0);
+function adicionar(nome,preco){
+itens.push({nome:nome,preco:preco});
+let total=0;
+let texto='';
+for(let i=0;i<itens.length;i++){total=total+itens[i].preco; texto+='• '+itens[i].nome+'<br>';}
 document.getElementById('qtd').innerText=itens.length;
 document.getElementById('total').innerText='R$ '+total.toFixed(2).replace('.',',');
+document.getElementById('lista').innerHTML=texto;
 }
 function enviar(){
 if(itens.length===0){alert('Adicione um serviço primeiro!');return;}
 let nome=document.getElementById('nome').value||'Cliente';
-let texto='*NOVO PEDIDO - L.M SERVIÇOS*%0A%0A';
-itens.forEach(i=>{texto+=`• ${i.nome} - R$ ${i.preco.toFixed(2)}%0A`;});
-texto+=`%0ACliente/Carro: ${nome}`;
-texto+=`%0ATotal: ${document.getElementById('total').innerText}`;
+let texto='NOVO PEDIDO - L.M SERVIÇOS%0A%0A';
+for(let i=0;i<itens.length;i++){texto+='- '+itens[i].nome+' - R$ '+itens[i].preco.toFixed(2)+'%0A';}
+texto+='%0ACliente/Carro: '+nome+'%0ATotal: '+document.getElementById('total').innerText;
 window.open('https://wa.me/5521983147263?text='+texto,'_blank');
 }
 </script>
 </body>
-</html>
+  </html>
