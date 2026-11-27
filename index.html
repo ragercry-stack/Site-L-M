@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L.M Serviços Automotivos</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#0f0f0f;color:#fff}
+header{background:#ffcc00;color:#000;padding:18px;text-align:center}
+header h1{font-size:24px}
+.hero{padding:20px;text-align:center}
+.hero h2{color:#ffcc00;font-size:22px}
+.card{background:#1e1e1e;border:1px solid #333;border-radius:12px;padding:14px;margin:12px;display:flex;justify-content:space-between;align-items:center}
+.price{color:#ffcc00;font-weight:bold}
+.btn{background:#25D366;color:#fff;border:none;padding:10px 14px;border-radius:8px;font-weight:bold}
+.section{padding:10px 16px}
+.section h3{color:#ffcc00;margin:12px 0}
+.promo{background:#ffcc00;color:#000;padding:12px;border-radius:10px;text-align:center;font-weight:bold;margin:12px}
+</style>
+</head>
+<body>
+<header><h1>🔧 L.M SERVIÇOS AUTOMOTIVOS</h1><p>Oficina + Auto Peças | Nova Iguaçu RJ</p></header>
+<div class="hero"><h2>Seu carro pronto hoje mesmo</h2><p>Troca de óleo, freios, suspensão, revisão e Lava Jato.</p></div>
+<div class="promo">🔥 PROMO: Limpeza de Arrefecimento R$ 79,99 | Óleo 15w40 R$ 32,90</div>
+<div class="section"><h3>🚗 Lava Jato</h3>
+<div class="card"><b>Lavagem Simples</b><span><span class="price">R$ 15,00</span> <button class="btn" onclick="pedir('Lavagem Simples - R$ 15,00')">Pedir</button></span></div>
+<div class="card"><b>Lavagem Completa</b><span><span class="price">R$ 30,00</span> <button class="btn" onclick="pedir('Lavagem Completa - R$ 30,00')">Pedir</button></span></div>
+<div class="card"><b>Ducha</b><span><span class="price">R$ 10,00</span> <button class="btn" onclick="pedir('Ducha - R$ 10,00')">Pedir</button></span></div>
+<div class="card"><b>Moto</b><span><span class="price">R$ 15,00</span> <button class="btn" onclick="pedir('Moto - R$ 15,00')">Pedir</button></span></div>
+<div class="card"><b>【entity-Uber¦canonical_name=Uber】</b><span><span class="price">R$ 25,00</span> <button class="btn" onclick="pedir('【entity-Uber¦canonical_name=Uber】 - R$ 25,00')">Pedir</button></span></div>
+</div>
+<div class="section"><h3>🛠️ Serviços - Pedir Orçamento</h3>
+<div class="card"><b>Suspensão em Geral</b><button class="btn" onclick="pedir('Orçamento: Suspensão em Geral')">Orçamento</button></div>
+<div class="card"><b>Freio em Geral</b><button class="btn" onclick="pedir('Orçamento: Freio em Geral')">Orçamento</button></div>
+<div class="card"><b>Troca de Óleo + Filtros</b><button class="btn" onclick="pedir('Orçamento: Troca de Óleo + Filtros')">Orçamento</button></div>
+<div class="card"><b>Correia Dentada + Esticador</b><button class="btn" onclick="pedir('Orçamento: Correia Dentada')">Orçamento</button></div>
+<div class="card"><b>Embreagem</b><button class="btn" onclick="pedir('Orçamento: Embreagem')">Orçamento</button></div>
+</div>
+<div class="section"><p>📍 Estrada Santa Rita, 2631 - Vila Formosa - Nova Iguaçu RJ<br>🕐 Seg a Sex 09h às 18h | Sáb 08:30 às 14h<br>📲 WhatsApp: (21) 98314-7263</p></div>
+<script>
+function pedir(msg){
+  window.open('https://wa.me/5521983147263?text='+encodeURIComponent('Olá L.M! Quero: '+msg), '_blank');
+}
+</script>
+</body>
+</html>
