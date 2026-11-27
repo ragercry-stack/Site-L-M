@@ -6,7 +6,7 @@
 <title>L.M Serviços Automotivos</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#0a0a0a;color:#fff;padding-bottom:120px}
+body{background:#0a0a0a;color:#fff;padding-bottom:130px}
 header{background:#ffcc00;color:#000;padding:20px 16px;text-align:center}
 header h1{font-size:24px}
 header p{font-size:14px;margin-top:4px}
@@ -24,11 +24,12 @@ header p{font-size:14px;margin-top:4px}
 .info{padding:16px;font-size:14px;line-height:1.6;color:#ddd}
 input{width:100%;padding:12px;border-radius:10px;border:1px solid #333;background:#222;color:#fff}
 .map-btn{display:block;text-align:center;background:#fff;color:#000;padding:12px;border-radius:10px;font-weight:bold;text-decoration:none;margin-top:10px}
-.cart{position:fixed;bottom:0;left:0;right:0;background:#111;border-top:3px solid #ffcc00;padding:10px 16px}
+.cart{position:fixed;bottom:0;left:0;right:0;background:#111;border-top:3px solid #ffcc00;padding:10px 16px;max-height:75vh;overflow-y:auto}
 .cart-top{display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px}
-.btn-big{width:100%;padding:13px;font-size:16px;border-radius:12px;background:#25D366;color:#fff;border:none;font-weight:bold;cursor:pointer}
+.btn-big{width:100%;padding:13px;font-size:16px;border-radius:12px;background:#25D366;color:#fff;border:none;font-weight:bold;cursor:pointer;margin-top:8px}
 .btn-limpar{background:none;border:none;color:#ff6b6b;font-size:12px;cursor:pointer;text-decoration:underline}
-#detalhes{display:none;background:#1a1a1a;padding:10px 16px;font-size:13px;line-height:1.5;color:#ccc}
+#detalhes{display:none;background:#1a1a1a;padding:10px;border-radius:10px;font-size:14px;line-height:2.2;color:#fff;margin-bottom:8px}
+.btn-x{background:#ff4444;color:#fff;border:none;padding:4px 10px;border-radius:8px;font-weight:bold;cursor:pointer;margin-left:8px;font-size:14px}
 </style>
 </head>
 <body>
@@ -54,14 +55,14 @@ input{width:100%;padding:12px;border-radius:10px;border:1px solid #333;backgroun
 <p style="margin-top:12px">📍 Estrada Santa Rita, 2631 - Vila Formosa - Nova Iguaçu RJ<br>🕐 Seg a Sex 09h às 18h | Sáb 08:30 às 14h<br>📲 WhatsApp: (21) 98314-7263</p>
 <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Estrada+Santa+Rita+2631+Vila+Formosa+Nova+Iguaçu+RJ" target="_blank">📍 Como Chegar - Abrir no Mapa</a>
 </div>
-<div id="detalhes"></div>
 <div class="cart">
-<div class="cart-top"><span onclick="mostrar()" style="text-decoration:underline;cursor:pointer">🛒 Itens: <b id="qtd">0</b> - ver itens</span><span><button class="btn-limpar" onclick="limpar()">Limpar</button> | Total: <b id="total" style="color:#ffcc00">R$ 0,00</b></span></div>
+<div id="detalhes"></div>
+<div class="cart-top"><span onclick="mostrar()" style="text-decoration:underline;cursor:pointer">🛒 Itens: <b id="qtd">0</b> - tocar pra ver / tirar</span><span><button class="btn-limpar" onclick="limpar()">Limpar</button> | Total: <b id="total" style="color:#ffcc00">R$ 0,00</b></span></div>
 <button type="button" class="btn-big" onclick="enviar()">📲 Enviar Pedido Completo no WhatsApp</button>
 </div>
 <script>
 let itens=[];
-function adicionar(nome,preco){itens.push({nome:nome,preco:preco});atualizar();}
+function adicionar(nome,preco){itens.push({nome:nome,preco:preco});atualizar();document.getElementById('detalhes').style.display='block';}
 function atualizar(){
 let total=0;
 for(let i=0;i<itens.length;i++){total=total+itens[i].preco;}
@@ -69,9 +70,11 @@ document.getElementById('qtd').innerText=itens.length;
 document.getElementById('total').innerText='R$ '+total.toFixed(2).replace('.',',');
 let d=document.getElementById('detalhes');
 let t='';
-for(let i=0;i<itens.length;i++){t+='• '+itens[i].nome+'<br>';}
+for(let i=0;i<itens.length;i++){t+='• '+itens[i].nome+' - R$ '+itens[i].preco.toFixed(2)+' <button class="btn-x" onclick="remover('+i+')">X Tirar</button><br>';}
+if(itens.length===0){t='Carrinho vazio. Adicione um serviço.';}
 d.innerHTML=t;
 }
+function remover(i){itens.splice(i,1);atualizar();}
 function limpar(){itens=[];atualizar();document.getElementById('detalhes').style.display='none';}
 function mostrar(){
 let d=document.getElementById('detalhes');
