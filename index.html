@@ -18,18 +18,19 @@ header p{font-size:14px;margin-top:4px}
 .promo{background:#ffcc00;color:#000;padding:14px;border-radius:12px;text-align:center;font-weight:bold;margin:0 16px;font-size:15px}
 .section{padding:10px 16px}
 .section h3{color:#ffcc00;margin:16px 0 10px;font-size:19px}
-.card{background:#1a1a1a;border:1px solid #2d2d2d;border-radius:16px;padding:16px;margin:10px 0;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.card{background:#1a1a1a;border:1px solid #2d2d2d;border-radius:16px;padding:16px;margin:10px 0;display:flex;justify-content:space-between;align-items:center;gap:8px}
 .price{color:#ffcc00;font-weight:bold}
-.btn{background:#22c55e;color:#fff;border:none;padding:11px 14px;border-radius:10px;font-weight:bold;cursor:pointer}
+.qtd-box{display:flex;align-items:center;gap:6px}
+.btn-menos{background:#ff4444;color:#fff;border:none;width:32px;height:32px;border-radius:8px;font-size:18px;font-weight:bold;cursor:pointer}
+.btn-mais{background:#22c55e;color:#fff;border:none;width:32px;height:32px;border-radius:8px;font-size:18px;font-weight:bold;cursor:pointer}
+.qtd-num{font-weight:bold;min-width:20px;text-align:center}
 .info{padding:16px;font-size:14px;line-height:1.6;color:#ddd}
 input{width:100%;padding:12px;border-radius:10px;border:1px solid #333;background:#222;color:#fff}
 .map-btn{display:block;text-align:center;background:#fff;color:#000;padding:12px;border-radius:10px;font-weight:bold;text-decoration:none;margin-top:10px}
-.cart{position:fixed;bottom:0;left:0;right:0;background:#111;border-top:3px solid #ffcc00;padding:10px 16px;max-height:75vh;overflow-y:auto}
+.cart{position:fixed;bottom:0;left:0;right:0;background:#111;border-top:3px solid #ffcc00;padding:10px 16px}
 .cart-top{display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px}
-.btn-big{width:100%;padding:13px;font-size:16px;border-radius:12px;background:#25D366;color:#fff;border:none;font-weight:bold;cursor:pointer;margin-top:8px}
+.btn-big{width:100%;padding:13px;font-size:16px;border-radius:12px;background:#25D366;color:#fff;border:none;font-weight:bold;cursor:pointer}
 .btn-limpar{background:none;border:none;color:#ff6b6b;font-size:12px;cursor:pointer;text-decoration:underline}
-#detalhes{display:none;background:#1a1a1a;padding:10px;border-radius:10px;font-size:14px;line-height:2.2;color:#fff;margin-bottom:8px}
-.btn-x{background:#ff4444;color:#fff;border:none;padding:4px 10px;border-radius:8px;font-weight:bold;cursor:pointer;margin-left:8px;font-size:14px}
 </style>
 </head>
 <body>
@@ -37,18 +38,18 @@ input{width:100%;padding:12px;border-radius:10px;border:1px solid #333;backgroun
 <div class="hero"><h2>Seu carro pronto hoje mesmo</h2><p>Troca de óleo, freios, suspensão, revisão e Lava Jato.</p></div>
 <div class="promo">🔥 PROMO: Limpeza de Arrefecimento R$ 79,99 | Óleo 15w40 R$ 32,90</div>
 <div class="section"><h3>🚗 Lava Jato</h3>
-<div class="card"><b>Lavagem Simples</b><span><span class="price">R$ 15,00</span> <button type="button" class="btn" onclick="adicionar('Lavagem Simples',15)">Adicionar</button></span></div>
-<div class="card"><b>Lavagem Completa</b><span><span class="price">R$ 30,00</span> <button type="button" class="btn" onclick="adicionar('Lavagem Completa',30)">Adicionar</button></span></div>
-<div class="card"><b>Ducha</b><span><span class="price">R$ 10,00</span> <button type="button" class="btn" onclick="adicionar('Ducha',10)">Adicionar</button></span></div>
-<div class="card"><b>Moto</b><span><span class="price">R$ 15,00</span> <button type="button" class="btn" onclick="adicionar('Moto',15)">Adicionar</button></span></div>
-<div class="card"><b>&#85;ber</b><span><span class="price">R$ 25,00</span> <button type="button" class="btn" onclick="adicionar('&#85;ber',25)">Adicionar</button></span></div>
+<div class="card"><div><b>Lavagem Simples</b><br><span class="price">R$ 15,00</span></div><div class="qtd-box"><button class="btn-menos" onclick="mudar(0,'Lavagem Simples',15,-1)">-</button><span class="qtd-num" id="q0">0</span><button class="btn-mais" onclick="mudar(0,'Lavagem Simples',15,1)">+</button></div></div>
+<div class="card"><div><b>Lavagem Completa</b><br><span class="price">R$ 30,00</span></div><div class="qtd-box"><button class="btn-menos" onclick="mudar(1,'Lavagem Completa',30,-1)">-</button><span class="qtd-num" id="q1">0</span><button class="btn-mais" onclick="mudar(1,'Lavagem Completa',30,1)">+</button></div></div>
+<div class="card"><div><b>Ducha</b><br><span class="price">R$ 10,00</span></div><div class="qtd-box"><button class="btn-menos" onclick="mudar(2,'Ducha',10,-1)">-</button><span class="qtd-num" id="q2">0</span><button class="btn-mais" onclick="mudar(2,'Ducha',10,1)">+</button></div></div>
+<div class="card"><div><b>Moto</b><br><span class="price">R$ 15,00</span></div><div class="qtd-box"><button class="btn-menos" onclick="mudar(3,'Moto',15,-1)">-</button><span class="qtd-num" id="q3">0</span><button class="btn-mais" onclick="mudar(3,'Moto',15,1)">+</button></div></div>
+<div class="card"><div><b>&#85;ber</b><br><span class="price">R$ 25,00</span></div><div class="qtd-box"><button class="btn-menos" onclick="mudar(4,'&#85;ber',25,-1)">-</button><span class="qtd-num" id="q4">0</span><button class="btn-mais" onclick="mudar(4,'&#85;ber',25,1)">+</button></div></div>
 </div>
 <div class="section"><h3>🛠️ Serviços - Pedir Orçamento</h3>
-<div class="card"><b>Suspensão em Geral</b><button type="button" class="btn" onclick="adicionar('Orçamento: Suspensão em Geral',0)">Adicionar</button></div>
-<div class="card"><b>Freio em Geral</b><button type="button" class="btn" onclick="adicionar('Orçamento: Freio em Geral',0)">Adicionar</button></div>
-<div class="card"><b>Troca de Óleo + Filtros</b><button type="button" class="btn" onclick="adicionar('Orçamento: Troca de Óleo + Filtros',0)">Adicionar</button></div>
-<div class="card"><b>Correia Dentada + Esticador</b><button type="button" class="btn" onclick="adicionar('Orçamento: Correia Dentada',0)">Adicionar</button></div>
-<div class="card"><b>Embreagem</b><button type="button" class="btn" onclick="adicionar('Orçamento: Embreagem',0)">Adicionar</button></div>
+<div class="card"><div><b>Suspensão em Geral</b></div><div class="qtd-box"><button class="btn-menos" onclick="mudar(5,'Orçamento: Suspensão em Geral',0,-1)">-</button><span class="qtd-num" id="q5">0</span><button class="btn-mais" onclick="mudar(5,'Orçamento: Suspensão em Geral',0,1)">+</button></div></div>
+<div class="card"><div><b>Freio em Geral</b></div><div class="qtd-box"><button class="btn-menos" onclick="mudar(6,'Orçamento: Freio em Geral',0,-1)">-</button><span class="qtd-num" id="q6">0</span><button class="btn-mais" onclick="mudar(6,'Orçamento: Freio em Geral',0,1)">+</button></div></div>
+<div class="card"><div><b>Troca de Óleo + Filtros</b></div><div class="qtd-box"><button class="btn-menos" onclick="mudar(7,'Orçamento: Troca de Óleo + Filtros',0,-1)">-</button><span class="qtd-num" id="q7">0</span><button class="btn-mais" onclick="mudar(7,'Orçamento: Troca de Óleo + Filtros',0,1)">+</button></div></div>
+<div class="card"><div><b>Correia Dentada + Esticador</b></div><div class="qtd-box"><button class="btn-menos" onclick="mudar(8,'Orçamento: Correia Dentada',0,-1)">-</button><span class="qtd-num" id="q8">0</span><button class="btn-mais" onclick="mudar(8,'Orçamento: Correia Dentada',0,1)">+</button></div></div>
+<div class="card"><div><b>Embreagem</b></div><div class="qtd-box"><button class="btn-menos" onclick="mudar(9,'Orçamento: Embreagem',0,-1)">-</button><span class="qtd-num" id="q9">0</span><button class="btn-mais" onclick="mudar(9,'Orçamento: Embreagem',0,1)">+</button></div></div>
 </div>
 <div class="info">
 <input id="nome" placeholder="Seu nome e carro: ex: Fusca 2001 - João">
@@ -56,35 +57,32 @@ input{width:100%;padding:12px;border-radius:10px;border:1px solid #333;backgroun
 <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Estrada+Santa+Rita+2631+Vila+Formosa+Nova+Iguaçu+RJ" target="_blank">📍 Como Chegar - Abrir no Mapa</a>
 </div>
 <div class="cart">
-<div id="detalhes"></div>
-<div class="cart-top"><span onclick="mostrar()" style="text-decoration:underline;cursor:pointer">🛒 Itens: <b id="qtd">0</b> - tocar pra ver / tirar</span><span><button class="btn-limpar" onclick="limpar()">Limpar</button> | Total: <b id="total" style="color:#ffcc00">R$ 0,00</b></span></div>
+<div class="cart-top"><span>🛒 Itens: <b id="qtd">0</b></span><span><button class="btn-limpar" onclick="limpar()">Limpar tudo</button> | Total: <b id="total" style="color:#ffcc00">R$ 0,00</b></span></div>
 <button type="button" class="btn-big" onclick="enviar()">📲 Enviar Pedido Completo no WhatsApp</button>
 </div>
 <script>
-let itens=[];
-function adicionar(nome,preco){itens.push({nome:nome,preco:preco});atualizar();document.getElementById('detalhes').style.display='block';}
+let carrinho={};
+function mudar(id,nome,preco,delta){
+if(!carrinho[id]){carrinho[id]={nome:nome,preco:preco,qtd:0};}
+carrinho[id].qtd=carrinho[id].qtd+delta;
+if(carrinho[id].qtd<=0){delete carrinho[id];document.getElementById('q'+id).innerText=0;}
+else{document.getElementById('q'+id).innerText=carrinho[id].qtd;}
+atualizar();
+}
 function atualizar(){
-let total=0;
-for(let i=0;i<itens.length;i++){total=total+itens[i].preco;}
-document.getElementById('qtd').innerText=itens.length;
+let total=0;let totalItens=0;
+for(let k in carrinho){total=total+carrinho[k].preco*carrinho[k].qtd;totalItens=totalItens+carrinho[k].qtd;}
+document.getElementById('qtd').innerText=totalItens;
 document.getElementById('total').innerText='R$ '+total.toFixed(2).replace('.',',');
-let d=document.getElementById('detalhes');
-let t='';
-for(let i=0;i<itens.length;i++){t+='• '+itens[i].nome+' - R$ '+itens[i].preco.toFixed(2)+' <button class="btn-x" onclick="remover('+i+')">X Tirar</button><br>';}
-if(itens.length===0){t='Carrinho vazio. Adicione um serviço.';}
-d.innerHTML=t;
 }
-function remover(i){itens.splice(i,1);atualizar();}
-function limpar(){itens=[];atualizar();document.getElementById('detalhes').style.display='none';}
-function mostrar(){
-let d=document.getElementById('detalhes');
-if(d.style.display==='block'){d.style.display='none';}else{d.style.display='block';}
-}
+function limpar(){carrinho={};for(let i=0;i<10;i++){document.getElementById('q'+i).innerText=0;}atualizar();}
 function enviar(){
-if(itens.length===0){alert('Adicione um serviço primeiro!');return;}
+let totalItens=0;
+for(let k in carrinho){totalItens=totalItens+carrinho[k].qtd;}
+if(totalItens===0){alert('Adicione um serviço primeiro! Aperte +');return;}
 let nome=document.getElementById('nome').value||'Cliente';
 let texto='NOVO PEDIDO - L.M SERVIÇOS%0A%0A';
-for(let i=0;i<itens.length;i++){texto+='- '+itens[i].nome+' - R$ '+itens[i].preco.toFixed(2)+'%0A';}
+for(let k in carrinho){texto+='- '+carrinho[k].qtd+'x '+carrinho[k].nome+' - R$ '+(carrinho[k].preco*carrinho[k].qtd).toFixed(2)+'%0A';}
 texto+='%0ACliente/Carro: '+nome+'%0ATotal: '+document.getElementById('total').innerText;
 window.open('https://wa.me/5521983147263?text='+texto,'_blank');
 }
