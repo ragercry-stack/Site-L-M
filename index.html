@@ -10,8 +10,8 @@ body{background:#0a0a0a;color:#fff;padding-bottom:130px}
 header{background:#ffcc00;color:#000;padding:20px 16px;text-align:center}
 header h1{font-size:24px}
 header p{font-size:14px;margin-top:4px}
-.aberto{display:inline-block;background:#22c55e;color:#fff;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:bold;margin-top:8px}
-.fechado{display:inline-block;background:#ef4444;color:#fff;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:bold;margin-top:8px}
+.aberto{display:inline-block;background:#22c55e;color:#fff;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:bold;margin-top:8px}
+.fechado{display:inline-block;background:#ef4444;color:#fff;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:bold;margin-top:8px}
 .hero{padding:22px 16px;text-align:center}
 .hero h2{color:#ffcc00;font-size:22px}
 .hero p{color:#ddd;margin-top:6px;font-size:15px}
@@ -49,59 +49,22 @@ label{font-size:14px;color:#ffcc00;font-weight:bold}
 <div class="card"><div><b>Suspensão em Geral</b></div><div class="qtd-box"><button class="btn-menos" onclick="mudar(5,'Orçamento: Suspensão em Geral',0,-1)">-</button><span class="qtd-num" id="q5">0</span><button class="btn-mais" onclick="mudar(5,'Orçamento: Suspensão em Geral',0,1)">+</button></div></div>
 <div class="card"><div><b>Freio em Geral</b></div><div class="qtd-box"><button class="btn-menos" onclick="mudar(6,'Orçamento: Freio em Geral',0,-1)">-</button><span class="qtd-num" id="q6">0</span><button class="btn-mais" onclick="mudar(6,'Orçamento: Freio em Geral',0,1)">+</button></div></div>
 <div class="card"><div><b>Troca de Óleo + Filtros</b></div><div class="qtd-box"><button class="btn-menos" onclick="mudar(7,'Orçamento: Troca de Óleo + Filtros',0,-1)">-</button><span class="qtd-num" id="q7">0</span><button class="btn-mais" onclick="mudar(7,'Orçamento: Troca de Óleo + Filtros',0,1)">+</button></div></div>
-<div class="card"><div><b>Correia Dentada + Esticador</b></div><div class="qtd-box"><button class="btn-menos" onclick="mudar(8,'Orçamento: Correia Dentada',0,-1)">-</button><span class="qtd-num" id="q8">0</span><button class="btn-mais" onclick="mudar(8,'Orçamento: Correia Dentada',0,1)">+</button></div></div>
-<div class="card"><div><b>Embreagem</b></div><div class="qtd-box"><button class="btn-menos" onclick="mudar(9,'Orçamento: Embreagem',0,-1)">-</button><span class="qtd-num" id="q9">0</span><button class="btn-mais" onclick="mudar(9,'Orçamento: Embreagem',0,1)">+</button></div></div>
 </div>
 <div class="info">
 <input id="nome" placeholder="Seu nome e carro: ex: Fusca 2001 - João">
 <label>💳 Método de Pagamento</label>
-<select id="pagamento">
-<option value="Pix">Pix</option>
-<option value="Dinheiro">Dinheiro</option>
-<option value="Cartão de Crédito">Cartão de Crédito</option>
-<option value="Cartão de Débito">Cartão de Débito</option>
-<option value="Pagar na retirada">Pagar na retirada</option>
-</select>
+<select id="pagamento"><option value="Pix">Pix</option><option value="Dinheiro">Dinheiro</option><option value="Cartão de Crédito">Cartão de Crédito</option><option value="Cartão de Débito">Cartão de Débito</option><option value="Pagar na retirada">Pagar na retirada</option></select>
 <p style="margin-top:12px">📍 Estrada Santa Rita, 2631 - Vila Formosa - Nova Iguaçu RJ<br>🕐 Seg a Sex 09h às 18h | Sáb 08:30 às 14h<br>📲 WhatsApp: (21) 98314-7263</p>
 <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Estrada+Santa+Rita+2631+Vila+Formosa+Nova+Iguaçu+RJ" target="_blank">📍 Como Chegar - Abrir no Mapa</a>
 </div>
-<div class="cart">
-<div class="cart-top"><span>🛒 Itens: <b id="qtd">0</b></span><span><button class="btn-limpar" onclick="limpar()">Limpar tudo</button> | Total: <b id="total" style="color:#ffcc00">R$ 0,00</b></span></div>
-<button type="button" class="btn-big" onclick="enviar()">📲 Enviar Pedido Completo no WhatsApp</button>
-</div>
+<div class="cart"><div class="cart-top"><span>🛒 Itens: <b id="qtd">0</b></span><span><button class="btn-limpar" onclick="limpar()">Limpar tudo</button> | Total: <b id="total" style="color:#ffcc00">R$ 0,00</b></span></div><button type="button" class="btn-big" onclick="enviar()">📲 Enviar Pedido Completo no WhatsApp</button></div>
 <script>
 let carrinho={};
-function mudar(id,nome,preco,delta){
-if(!carrinho[id]){carrinho[id]={nome:nome,preco:preco,qtd:0};}
-carrinho[id].qtd=carrinho[id].qtd+delta;
-if(carrinho[id].qtd<=0){delete carrinho[id];document.getElementById('q'+id).innerText=0;}
-else{document.getElementById('q'+id).innerText=carrinho[id].qtd;}
-atualizar();
-}
-function atualizar(){
-let total=0;let totalItens=0;
-for(let k in carrinho){total=total+carrinho[k].preco*carrinho[k].qtd;totalItens=totalItens+carrinho[k].qtd;}
-document.getElementById('qtd').innerText=totalItens;
-document.getElementById('total').innerText='R$ '+total.toFixed(2).replace('.',',');
-}
-function limpar(){carrinho={};for(let i=0;i<10;i++){document.getElementById('q'+i).innerText=0;}atualizar();}
-function enviar(){
-let totalItens=0;
-for(let k in carrinho){totalItens=totalItens+carrinho[k].qtd;}
-if(totalItens===0){alert('Adicione um serviço primeiro! Aperte +');return;}
-let nome=document.getElementById('nome').value||'Cliente';
-let pagamento=document.getElementById('pagamento').value;
-let texto='NOVO PEDIDO - L.M SERVIÇOS%0A%0A';
-for(let k in carrinho){texto+='- '+carrinho[k].qtd+'x '+carrinho[k].nome+' - R$ '+(carrinho[k].preco*carrinho[k].qtd).toFixed(2)+'%0A';}
-texto+='%0ACliente/Carro: '+nome+'%0APagamento: '+pagamento+'%0ATotal: '+document.getElementById('total').innerText;
-window.open('https://wa.me/5521983147263?text='+texto,'_blank');
-}
-let agora=new Date();let dia=agora.getDay();let hora=agora.getHours()+agora.getMinutes()/60;
-let aberto=false;
-if(dia>=1&&dia<=5&&hora>=9&&hora<18){aberto=true;}
-if(dia===6&&hora>=8.5&&hora<14){aberto=true;}
-let s=document.getElementById('status');
-if(aberto){s.innerText='● Aberto agora';s.className='aberto';}else{s.innerText='● Fechado - abre Seg 09h';s.className='fechado';}
+function mudar(id,nome,preco,delta){if(!carrinho[id]){carrinho[id]={nome:nome,preco:preco,qtd:0};}carrinho[id].qtd=carrinho[id].qtd+delta;if(carrinho[id].qtd<=0){delete carrinho[id];document.getElementById('q'+id).innerText=0;}else{document.getElementById('q'+id).innerText=carrinho[id].qtd;}atualizar();}
+function atualizar(){let total=0;let totalItens=0;for(let k in carrinho){total=total+carrinho[k].preco*carrinho[k].qtd;totalItens=totalItens+carrinho[k].qtd;}document.getElementById('qtd').innerText=totalItens;document.getElementById('total').innerText='R$ '+total.toFixed(2).replace('.',',');}
+function limpar(){carrinho={};for(let i=0;i<8;i++){document.getElementById('q'+i).innerText=0;}atualizar();}
+function enviar(){let totalItens=0;for(let k in carrinho){totalItens=totalItens+carrinho[k].qtd;}if(totalItens===0){alert('Adicione um serviço primeiro! Aperte +');return;}let nome=document.getElementById('nome').value||'Cliente';let pagamento=document.getElementById('pagamento').value;let texto='NOVO PEDIDO - L.M SERVIÇOS%0A%0A';for(let k in carrinho){texto+='- '+carrinho[k].qtd+'x '+carrinho[k].nome+' - R$ '+(carrinho[k].preco*carrinho[k].qtd).toFixed(2)+'%0A';}texto+='%0ACliente/Carro: '+nome+'%0APagamento: '+pagamento+'%0ATotal: '+document.getElementById('total').innerText;window.open('https://wa.me/5521983147263?text='+texto,'_blank');}
+let agora=new Date();let dia=agora.getDay();let hora=agora.getHours()+agora.getMinutes()/60;let aberto=false;if(dia>=1&&dia<=5&&hora>=9&&hora<18){aberto=true;}if(dia===6&&hora>=8.5&&hora<14){aberto=true;}let s=document.getElementById('status');if(aberto){s.innerText='● Aberto agora';s.className='aberto';}else{s.innerText='● Fechado - abre Seg 09h';s.className='fechado';}
 </script>
 </body>
-  </html>
+</html>
